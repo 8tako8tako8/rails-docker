@@ -33,8 +33,6 @@ docker-compose run web rake db:create
 ```
 # コンテナに入る
 docker-compose exec web bash
-# gemをインストール
-> bundle install
 # コンテナ内でマイグレーション
 > rails db:migrate
 ```
