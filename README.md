@@ -33,8 +33,10 @@ docker-compose run web rake db:create
 ```
 # コンテナに入る
 docker-compose exec web bash
+# gemをインストール
+> bundle install
 # コンテナ内でマイグレーション
-rails db:migrate
+> rails db:migrate
 ```
 
 `localhost:3000/`にブラウザでアクセスして下記のページが表示されたら完了
