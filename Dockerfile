@@ -1,11 +1,10 @@
-FROM node:12.4-stretch as build-stage
+FROM node:16 as build-stage
 
 FROM ruby:3.0.2
 
 # Install Node.js and Yarn
-ENV YARN_VERSION 1.16.0
 RUN mkdir -p /opt
-COPY --from=build-stage /opt/yarn-v$YARN_VERSION /opt/yarn
+COPY --from=build-stage /opt/yarn-* /opt/yarn
 COPY --from=build-stage /usr/local/bin/node /usr/local/bin/
 COPY --from=build-stage /usr/local/lib/node_modules/ /usr/local/lib/node_modules/
 RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
